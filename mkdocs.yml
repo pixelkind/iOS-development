@@ -1,0 +1,82 @@
+site_name: iOS Development
+nav:
+  - "index.md"
+  - "swift.md"
+  - "SwiftUI":
+      - "chapter1/introduction.md"
+      - "chapter1/elements.md"
+      - "chapter1/modifier.md"
+  - "State":
+      - "chapter2/state.md"
+      - "chapter2/controls.md"
+      - "chapter2/observable.md"
+      - "chapter2/binding.md"
+      - "chapter2/environment.md"
+  - "Navigation":
+      - "chapter3/navigation.md"
+      - "chapter3/tabview.md"
+      - "chapter3/navigationstack.md"
+      - "chapter3/navigationpath.md"
+  - "Animation": "chapter4/animation.md"
+  - "concurrency.md"
+  - "loading-data.md"
+  - "data.md"
+  - "app-architecture.md"
+  - "swiftdata.md"
+theme:
+  name: material
+  features:
+    - navigation.tabs
+    - navigation.sections
+    - navigation.expand
+    - navigation.footer
+    # - toc.integrate
+    - toc.follow
+    - navigation.top
+    - search.suggest
+    - search.highlight
+    - content.tabs.link
+    - content.code.annotation
+    - content.code.copy
+  language: en
+  palette:
+    - scheme: default
+      toggle:
+        icon: material/toggle-switch-off-outline
+        name: Switch to dark mode
+      primary: deep orange
+      accent: purple
+    - scheme: slate
+      toggle:
+        icon: material/toggle-switch
+        name: Switch to light mode
+      primary: deep orange
+      accent: lime
+
+plugins:
+  - social
+
+extra:
+  social:
+    - icon: fontawesome/brands/github-alt
+      link: https://github.com/pixelkind
+
+markdown_extensions:
+  - pymdownx.highlight:
+      anchor_linenums: true
+  - pymdownx.inlinehilite
+  - pymdownx.snippets
+  - admonition
+  - pymdownx.arithmatex:
+      generic: true
+  - footnotes
+  - pymdownx.details
+  - pymdownx.superfences
+  - pymdownx.mark
+  - attr_list
+  - pymdownx.emoji:
+      emoji_index: !!python/name:materialx.emoji.twemoji
+      emoji_generator: !!python/name:materialx.emoji.to_svg
+
+copyright: |
+  &copy; 2024 <a href="https://github.com/pixelkind"  target="_blank" rel="noopener">Garrit Schaap</a>
