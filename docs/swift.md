@@ -166,18 +166,32 @@ string...
 
 ## Collection Types
 
+Swift provides you with some collection types like arrays, sets, and dictionaries.
+
 ### Arrays
+
+An array can be created using different ways. For example by using the `[]`. If you want, you can already write values between the brackets.
 
 ```Swift
 let array = [42, 13]
+```
 
+If you want to create an empty array, you can use one of the following ways to do that.
+
+```Swift
 var attendees = [String]()
 var attendees: [String] = []
-var attendees = ["Jasmin", "Anders"]
+```
 
+After declaring your array, you can use different methods, for example `append` to add something to the end of the array, or use the `count` property to check how many items are in your array.
+
+```Swift
+var attendees = ["Jasmin", "Anders"]
 attendees.append("Garrit")
 print("Number of attendees: \(attendees.count)")
 ```
+
+For many functions, Swift offers you two different ways of applying them. Let's have a look at the sorting example. To sort an array, Swift has the `sort` and the `sorted` function. The first one, sorts the array directly, mutating it. The second one, returns a new, sorted array instance.
 
 ```Swift
 var emojis = ["🥚", "🐓"]
@@ -189,6 +203,8 @@ let sortedEmojis = emojis.sorted()
 
 ### Sets
 
+Swift also have support for sets. The compiler cannot infer if you want to use an array or a set. The default is the array, therefore, you need to set the type explicitly if you want to use a set.
+
 ```Swift
 let data = Set<Int>()
 let data: Set<Int> = [42, 13]
@@ -196,14 +212,23 @@ let data: Set<Int> = [42, 13]
 
 ### Dictionaries
 
+To create a dictionary, you can use the shorthand syntax `[:]`.
+
 ```Swift
 let dict: [String: String] = [:]
+```
+
+If you prefill the values in your dictionary, Swift will try to infer the type.
+
+```Swift
 let dict = ["key": "value"]
 ```
 
 ## Control flow
 
 ### If statement
+
+In Swift, you can use if-statements like you are used to from other languages. One big change is, there are no brackets around the condition.
 
 ```Swift
 let numberOfKanelbullar = 3
@@ -212,6 +237,8 @@ if numberOfKanelbullar < 2 {
   print("We need more Kanelbullar!")
 }
 ```
+
+Else-statement is also similar to many other languages.
 
 ```Swift
 let numberOfKanelbullar = 3
@@ -222,6 +249,8 @@ if numberOfKanelbullar < 2 {
   print("Let's have some fika!")
 }
 ```
+
+And of course you have also an else-if-statement.
 
 ```Swift
 let numberOfKanelbullar = 3
@@ -237,13 +266,19 @@ if numberOfKanelbullar < 2 {
 
 ### Guard statement
 
+Swift has a conditional statement called `guard`. It is an inverted if-statement and can be used for early returns. In this example, only return if the `statusCode` value is larger or equal to `400`.
+
 ```Swift
 guard statusCode < 400 else {
   return
 }
 ```
 
+If you want to make sure that a value is correct, or an optional is not nil before executing code, always use a `guard`-statement.
+
 ### Switch statement
+
+As with most other languages, you also have `switch`-statements. They can be used like in this example:
 
 ```Swift
 var emoji = "🐹"
@@ -260,13 +295,17 @@ switch emoji {
 
 ### For loops
 
+If you want to write a for-loop, there are different ways to do that. The most simple one is to iterate through a range. In this example, Swift will print out the numbers between 1 and 42.
+
 ```Swift
-for index in 1...42 { // 0..<42
+for index in 1...42 {
     print(index)
 }
 ```
 
 #### For loops with arrays
+
+If you want to loop through an array, you can use the following syntax:
 
 ```Swift
 let emojis = ["🐹", "🥳", "🍰", "🦆"]
@@ -277,6 +316,8 @@ for emoji in emojis {
 ```
 
 #### For loops with dictionaries
+
+And if you have a dictionary to iterate, you can use a tuple to have access to the key and the value.
 
 ```Swift
 let emojis =
@@ -289,6 +330,8 @@ for (name, emoji) in emojis {
 
 ### While loops
 
+You can also use while-loops in Swift.
+
 ```Swift
 var count = 0
 while count < 3 {
@@ -298,6 +341,8 @@ while count < 3 {
 ```
 
 ### Repeat-while loops
+
+Or repeat-while-loops, which are similar to do-while-loops in many other programming languages.
 
 ```Swift
 var count = 0
@@ -309,16 +354,20 @@ repeat {
 
 ## Optionals
 
+Swift offers an optional type. That means, this value can be nil and you have to _unwrap_ it, before you can use it. An optional type has a `?` after the type.
+
 ```Swift
 var cat: String?
 
 cat = "🐈"
 print(cat)
 
-if let cat {
+if let cat { // unwrapping the value
     print(cat)
 }
 ```
+
+If you want to use an optional but want to provide a default feedback value, you can use the `??` operator. If the value is `nil`, the value behind the `??` operator will be used.
 
 ```Swift
 var cat: String?
@@ -328,25 +377,37 @@ let myCat = cat ?? "🐱"
 
 ## Functions
 
+I Swift, you use the `func` keyword to define a function.
+
 ```Swift
 func helloWorld() {
     print("Hello World")
 }
 ```
 
-#### Parameter naming
+### Parameter naming
+
+By default, parameter names are used when you call a function.
 
 ```Swift
 func greet(person: String) {
     print("Hello \(person)")
 }
 greet(person: "Jasmin")
+```
 
+If you use an `_` in front of the parameter name, you don't need to write the parameter name.
+
+```Swift
 func greetPerson(_ person: String) {
     print("Hello \(person)")
 }
 greetPerson("Jasmin")
+```
 
+You can even use different names in the function call and as a variable inside the function.
+
+```Swift
 func greet(person personName: String) {
     print("Hello \(personName)")
 }
@@ -354,6 +415,8 @@ greet(person: "Jasmin")
 ```
 
 #### Default values for parameters
+
+If you want to provide a _default_ value, you can do that by assigning it in the function signature.
 
 ```Swift
 func greet(person: String = "Groot") {
@@ -363,6 +426,8 @@ greet() // will print "Hello Groot"
 ```
 
 #### inout parameters
+
+Swift offers `inout` parameters. These parameters bind to a property outside of the function and can mutate it.
 
 ```Swift
 func add(value: Int, toNumber internalNumber: inout Int) {
@@ -374,14 +439,20 @@ add(value: 10, toNumber: &number)
 print(number)
 ```
 
-#### Returns
+#### Return
+
+If you want a function to return something, you can use the `return` keyword.
 
 ```Swift
 func bestEmoji() -> String {
     // do something here to get the best one
     return "😱"
 }
+```
 
+If your function only contains a single line, the value defined there will be automatically returned.
+
+```Swift
 // special case for single line functions
 func bestEmoji() -> String {
     "😱"
@@ -390,11 +461,7 @@ func bestEmoji() -> String {
 
 ## Closures
 
-> Closures are self-contained blocks of functionality that can be passed around and used in your code. Closures in Swift are similar to blocks in C and Objective-C and to lambdas in other programming languages.
-
-> Closures can capture and store references to any constants and variables from the context in which they’re defined. This is known as closing over those constants and variables. Swift handles all of the memory management of capturing for you.
-
-> A closure is said to escape a function when the closure is passed as an argument to the function, but is called after the function returns. When you declare a function that takes a closure as one of its parameters, you can write @escaping before the parameter’s type to indicate that the closure is allowed to escape.
+Closures are similar to blocks in C and to lambdas in python. They are self containing functions that are often used to map or filter, for example. You can define yourself if you want to be more explicit and name your parameters or if you want to use the default shorthand: `$0` for the first parameter, and so on...
 
 ```Swift
 let emojis = ["🐹", "🥳", "🍰", "🦆"]
@@ -408,7 +475,7 @@ let result = emojis.filter { (emoji) -> Bool in
 let resultSingleLine = emojis.filter { $0 == "🐹" }
 ```
 
-If you don't want to use the parameter, you can ignore it by using the `_` instead of a parameter name.
+If you don't want to use a parameter, you can ignore it by using the `_` instead of a parameter name.
 
 ```Swift
 let emojis = ["🐹", "🥳", "🍰", "🦆"]
@@ -442,6 +509,8 @@ hamster.greet()
 
 #### Property listener
 
+You can defined property listener that react on the change of a property using `didSet`.
+
 ```Swift
 class Animal {
     let name: String
@@ -463,6 +532,8 @@ hamster.age += 1
 
 #### Computed properties
 
+Classes can contain _computed properties_. These properties cannot be set, they are calculated but behave like a _getter_.
+
 ```Swift
 class Animal {
     let name: String
@@ -483,6 +554,8 @@ print(hamster.info)
 
 #### Inheritance
 
+You can use inheritance in Swift like this:
+
 ```Swift
 class Dog: Animal {
     func bark() {
@@ -493,7 +566,7 @@ class Dog: Animal {
 
 ## Structs
 
-Structs are a value-type. You can define properties, methods, subscripts, and initializers in a struct. Structs can be _extended_, and they can conform to _protocols_.
+Structs are a value-type. You can define properties, methods, subscripts, and initializers in a struct. Structs can be _extended_, and they can conform to _protocols_. By default, structs are immutable.
 
 ```Swift
 struct Animal {
@@ -509,25 +582,37 @@ let hamster = Animal(name: "Klaus", emoji: "🐹")
 hamster.greet()
 ```
 
-You should prefer structs over classes, if possible.
+> You should prefer structs over classes, if possible.
 
 ## Enums
+
+Swift uses _enums_ a lot. Enums makes it easy to define different states in a safe way. You should always prefer enums over defining states in strings or ints.
 
 ```Swift
 enum Animal {
     case hamster, cat, dog
 }
+```
 
+If you want your enum to also represent a string, you can do that by inheriting from `String`. The `rawValue` property of the enum will contain the string. The same works for ints.
+
+```Swift
 enum Animal: String {
     case hamster, cat, dog
 }
+```
 
+If you want a case to represent a specific string, you can assign it like this:
+
+```Swift
 enum Animal: String {
     case hamster = "🐹"
     case cat = "🐱"
     case dog = "🐶"
 }
 ```
+
+You can use the cases of an enum for example in a `switch` statement:
 
 ```Swift
 enum Animal {
@@ -545,6 +630,8 @@ case .dog:
 }
 ```
 
+And you can add one or more _associated value_ to an enum. This way, you can add some additional information to your enum.
+
 ```Swift
 enum Animal {
     case cat(String), dog(String)
@@ -560,6 +647,8 @@ case .dog(let name):
 ```
 
 ## Protocols
+
+Protocols in Swift are similar to Interfaces in other languages. They define the methods and properties a `struct` or `class` should have.
 
 ```Swift
 protocol Animal {
@@ -581,7 +670,7 @@ class Dog: Animal {
 
 ## Extensions
 
-You can extend an existing class or struct and confirm to a new protocol. Extensions work app-wide. For example, you can extend the `String` class.
+You can extend an existing class or struct. You can eiterh add additional functions or you can make it confirm to a new protocol. Extensions work app-wide. For example, you can extend the `String` class.
 
 ```Swift
 struct Cat {
@@ -597,6 +686,8 @@ extension Cat {
 
 ## Generics
 
+Last, you should know about generics in Swift. Generics allows you to create abstract functions or classes that are independent of a specific type. The function in our example works for every type.
+
 ```Swift
 func swapTwoValues<T>(_ a: inout T, _ b: inout T) {
     let temporaryA = a
@@ -610,3 +701,9 @@ var b = 13
 swapTwoValues(&a, &b)
 print(a, b)
 ```
+
+Another example could be a class for loading data. But we will have a look at an example later during the course.
+
+## Great work
+
+Now that you have learned the basics of the Swift programming language, we can move on and have a look at SwiftUI.

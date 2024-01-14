@@ -18,11 +18,14 @@ nav:
       - "chapter3/navigationstack.md"
       - "chapter3/navigationpath.md"
   - "Animation": "chapter4/animation.md"
-  - "concurrency.md"
-  - "loading-data.md"
-  - "data.md"
-  - "app-architecture.md"
-  - "swiftdata.md"
+  # - "Concurrency":
+  #     - "chapter6/introduction.md"
+  #     - "chapter6/old.md"
+  #     - "chapter6/async-await.md"
+  #     - "chapter6/loading.md"
+  # - "Data":
+  #     - "chapter7/data.md"
+  #     - "chapter7/decode.md"
 theme:
   name: material
   features:

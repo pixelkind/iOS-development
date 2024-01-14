@@ -1,1 +1,0 @@
-# App architecture in iOS
