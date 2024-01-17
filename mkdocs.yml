@@ -17,6 +17,7 @@ nav:
       - "chapter3/tabview.md"
       - "chapter3/navigationstack.md"
       - "chapter3/navigationpath.md"
+      - "chapter3/searchable-example.md"
   - "Animation": "chapter4/animation.md"
   # - "Concurrency":
   #     - "chapter6/introduction.md"
