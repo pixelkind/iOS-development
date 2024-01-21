@@ -21,7 +21,7 @@ private func loadData() async throws -> Data? {
 
 ```Swift
 func fetchData() {
-    Task.init {
+    Task {
         self.storeMyData = try? await loadData()
     }
 }
@@ -41,12 +41,7 @@ Besides the structured concurrency approach, we can also use other approaches. P
 
 ## Loading data using combine
 
-[Combine](https://developer.apple.com/documentation/combine) is a framework to provide a declarative API for Swift to process values over time. That includes asynchronous events, like loading data. It follows the Publisher-Subscriber pattern.
-
-1. Want to get the data from the url
-2. check if the status code is ok
-3. receive the data on the main queue
-4. use the data (for example assign to a view)
+[Combine](https://developer.apple.com/documentation/combine) is a framework to provide a declarative API for Swift to process values over time. That includes asynchronous events, like loading data. It follows the Publisher-Subscriber pattern. For loading data, we can use the `dataTaskPublisher` on a `URLSession` like this. You can see that after mapping the data we switch the thread on which the code will be executed.
 
 ```Swift
 cancellable = URLSession.shared
@@ -65,7 +60,9 @@ cancellable = URLSession.shared
     }
 ```
 
-## Loading data using a callback handler
+## Loading data using a completion handler
+
+If you want to load data using an `URLSession`, you can also use a completion handler. This is not the recommended way any longer. But here is an usage example:
 
 ```Swift
 let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
@@ -80,3 +77,5 @@ let task = URLSession.shared.dataTask(with: url) { (data, response, error) in
 }
 task.resume()
 ```
+
+Please don't forget to call `task.resume()` to start the loading operation.

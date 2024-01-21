@@ -76,3 +76,13 @@ let result = try? decoder.decode(DataStructure.self, from: data)
 ```
 
 ## Using custom CodingKeys
+
+```Swift
+struct Feed: Codable {
+    let posts: [Post]
+
+    enum CodingKeys: String, CodingKey {
+        case posts = "items"
+    }
+}
+```
