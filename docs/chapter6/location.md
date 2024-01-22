@@ -208,4 +208,4 @@ class LocationManager: NSObject, CLLocationManagerDelegate {
 }
 ```
 
-If we now want to show the city name in the view, we can use `locality` property on the `CLPlacemark`.
+If we now want to for example, show the city name in the view, we can use `locality` property on the `CLPlacemark`.

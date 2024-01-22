@@ -14,7 +14,7 @@ Do you remember the user example?
 }
 ```
 
-Let's have a look how the struct would look like.
+Let's have a look how the struct would look like. You can clearly see the similiarities.
 
 ```Swift
 struct User: Decodable {
@@ -43,8 +43,7 @@ The `result` will be an _optional_ User object containing the data from the JSON
 
 You can see that we use the same property names and types as in the JSON file and translate them to the Swift version.
 
-​Create the data structure as Decodable structs
-Use JSONDecoder to automatically transform JSON file to Swift objects
+If we look at the more complex example, the questions, we can create a struct like this.
 
 ```Swift
 struct Question: Decodable {
@@ -63,19 +62,17 @@ struct Question: Decodable {
 }
 ```
 
+As you notice, we can automatically transform the type and the difficulty to enums. But if we want to load it, we have to change the default setting from the `JSONDecoder`. Because the JSON uses snake_case and we are using lowerCamelCase. In order to make that work, we can use the `keyDecodingStrategy` on the decoder. This will automatically transform the keys to lowerCamelCase.
+
 ```Swift
-// JSON: {"name": "Garrit"}
-
-struct DataStructure: Decodable {
-    let name: String
-}
-
 let decoder = JSONDecoder()
 decoder.keyDecodingStrategy = .convertFromSnakeCase
-let result = try? decoder.decode(DataStructure.self, from: data)
+let result = try? decoder.decode(Question.self, from: data)
 ```
 
 ## Using custom CodingKeys
+
+In case you want define your own names, you can use a `CodingKeys` enum. In this enum, you can define the key, which is your property name, and the value, which is the key in the JSON element.
 
 ```Swift
 struct Feed: Codable {
@@ -86,3 +83,5 @@ struct Feed: Codable {
     }
 }
 ```
+
+Now you are ready to load data from the internet in your iOS app.

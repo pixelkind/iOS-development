@@ -19,14 +19,15 @@ nav:
       - "chapter3/navigationpath.md"
       - "chapter3/searchable-example.md"
   - "Animation": "chapter4/animation.md"
-  # - "Concurrency":
-  #     - "chapter6/introduction.md"
-  #     - "chapter6/old.md"
-  #     - "chapter6/async-await.md"
-  #     - "chapter6/loading.md"
-  # - "Data":
-  #     - "chapter7/data.md"
-  #     - "chapter7/decode.md"
+  - "Concurrency":
+      - "chapter6/introduction.md"
+      - "chapter6/old.md"
+      - "chapter6/async-await.md"
+      - "chapter6/loading.md"
+      - "chapter6/location.md"
+  - "Data":
+      - "chapter7/data.md"
+      - "chapter7/decode.md"
 theme:
   name: material
   features:

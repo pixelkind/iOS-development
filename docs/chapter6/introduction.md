@@ -1,6 +1,6 @@
 # Loading data
 
-Loading data is very common in apps and something you will do regularly. Since many things can have an impact on the time it takes to load something, for example the internet connection or the size of the data, we will use a non-blocking way of loading. If you want to write code that is running asynchronous you are using concurrency in Swift.
+Loading data is very common in apps and something you will do regularly. Many things can have an impact on the time it takes to load something, for example the quality of the internet connection or the size of the data. Therefore, we will use a non-blocking, asynchronous way of loading. If you want to write code that is running asynchronous you are using concurrency in Swift.
 
 ## Concurrency
 

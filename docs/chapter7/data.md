@@ -45,6 +45,6 @@ Let's have a look at a bit more complex _JSON_ object:
 }
 ```
 
-As you can see, this object has the properties _category_, _type_, _difficulty_, _question_, _correct_answer_, and _incorrect_answer_. As you can probably notice, it is the data of a single question for a quiz, represented in the _JSON_ format. Besides a lot of strings, it also includes an array with strings.
+This object has the properties _category_, _type_, _difficulty_, _question_, _correct_answer_, and _incorrect_answer_. As you can notice, it is the data of a single question for a quiz, represented in the _JSON_ format. Besides a lot of strings, it also includes an array with strings.
 
 Now that we have an idea what _JSON_ is and what it represents, let's have a look how we can _decode_ it into a native object in Swift.

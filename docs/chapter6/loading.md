@@ -1,23 +1,6 @@
 # Loading data
 
-After learning about concurrency in Swift, let's check out how we can actually use it to load data from the internet.
-
-```Swift
-@MainActor
-func fetchData() async {
-    self.storeMyData = try? await loadData()
-}
-
-private func loadData() async throws -> Data? {
-    if let url = URL(string: "https://opentdb.com/api.php?amount=\(amountOfQuestions)&type=multiple") {
-        let (data, _) = try await URLSession.shared.data(from: url)
-        print(String(data: data, encoding: .utf8))
-        return data
-    } else {
-        return nil
-    }
-}
-```
+After learning about concurrency in Swift, let's check out how we can actually use it to load data from the internet. In this example, we are using a `fetchData` method, that creates a task and then waits for the asynchronous `loadData` function to be finished. Once the data has been loaded, the `storeMyData` property will be updated.
 
 ```Swift
 func fetchData() {
@@ -79,3 +62,5 @@ task.resume()
 ```
 
 Please don't forget to call `task.resume()` to start the loading operation.
+
+A final note, please do not forget, that I expect you to use async await syntax!

@@ -16,7 +16,7 @@ Asynchronous functions can only be called from within an asynchronous function a
 
 ## Tasks
 
-A task creates a new concurrent task in which we can execute asynchronous code. We can for example use the `Task {}` initializer.
+A task creates a new concurrent context in which we can execute asynchronous code. We can for example use the `Task {}` initializer.
 
 ```Swift
 func loadImages() async -> [UIImage] {
@@ -65,19 +65,14 @@ That means, before we start loading result2, we are waiting for result 1 to be f
 If we want to have multiple tasks in parallel, we can use the `async let` keyword.
 
 ```Swift
-async let result1 = await loadResult1()
-async let result2 = await loadResult2()
+async let result1 = loadResult1()
+async let result2 = loadResult2()
 ```
 
-This can be used for other things than loading data, for example scaling images, etc.
+This can be also used for other things than loading data, for example scaling images, etc.
+
+You can find additional references and examples in the lecture slides or [here](https://www.hackingwithswift.com/swift/5.5/async-let-bindings).
 
 ## Actors
 
-ADD A LINK HERE!
-
-Actors protect their states from data races by isolating data access
-Concurrent access to mutable data will be prevented
-Access to data must be synchronized
-The actor keyword can be used like the class keyword
-Actors are reference types
-They do not support inheritance
+_Actors_ are used in Swift to protect your code from data races by isolating the access. [Here](https://www.hackingwithswift.com/quick-start/concurrency/what-is-an-actor-and-why-does-swift-have-them) is a good introduction to the topic.
