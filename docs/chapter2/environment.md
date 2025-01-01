@@ -27,8 +27,6 @@ And this is how you can access the object in a view:
 
 Of course, it works with different types of objects, according you must change the type after the `@Environment` property wrapper.
 
-Here you can find more information about the environment property wrapper:
-
-ADD MORE LINKS HERE
+[Here](https://developer.apple.com/documentation/swiftui/environment#Get-an-observable-object) you can find more information about using `@environment` with an observable object.
 
 Let's move on to Navigation in SwiftUI.
